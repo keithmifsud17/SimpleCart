@@ -1,12 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
+﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using SimpleCart.Context;
+using SimpleCart.Repositories;
+using System;
 
 namespace SimpleCart
 {
@@ -28,7 +28,14 @@ namespace SimpleCart
         public void ConfigureServices(IServiceCollection services)
         {
             // Add framework services.
+            var connection = Configuration.GetConnectionString("SimpleCartConnectionString");
+
+            services.AddDbContext<SimpleCartContext>(options => options.UseSqlite(connection));
+
+            services.AddMemoryCache();
             services.AddMvc();
+            services.AddScoped<IProductRepository, ProductRepository>();
+            services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -36,6 +43,15 @@ namespace SimpleCart
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+
+            if (env.IsDevelopment())
+            {
+                using (var scope = app.ApplicationServices.GetRequiredService<IServiceScopeFactory>().CreateScope())
+                {
+                    scope.ServiceProvider.GetService<SimpleCartContext>().Database.Migrate();
+                    scope.ServiceProvider.GetService<SimpleCartContext>().AddSampleData();
+                }
+            }
 
             app.UseMvc();
         }
