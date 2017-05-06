@@ -33,6 +33,7 @@ namespace SimpleCart
             services.AddDbContext<SimpleCartContext>(options => options.UseSqlite(connection));
 
             services.AddMemoryCache();
+            services.AddCors();
             services.AddMvc();
             services.AddScoped<IProductRepository, ProductRepository>();
             services.AddScoped<IShoppingCartRepository, ShoppingCartRepository>();
@@ -53,6 +54,7 @@ namespace SimpleCart
                 }
             }
 
+            app.UseCors(builder => builder.WithOrigins("http://localhost:3000").AllowAnyMethod().AllowAnyHeader());
             app.UseMvc();
         }
     }

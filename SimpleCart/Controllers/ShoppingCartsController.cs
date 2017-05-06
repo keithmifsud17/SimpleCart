@@ -24,7 +24,7 @@ namespace SimpleCart.Controllers
         [HttpGet]
         public IActionResult Get()
         {
-            return Ok(_cache.GetOrCreate("ShoppingCart", e => { e.SlidingExpiration = TimeSpan.FromMinutes(15); return _repository.GetAll().ToList(); }));
+            return Ok(_cache.GetOrCreate("ShoppingCart", e => { e.SlidingExpiration = TimeSpan.FromMinutes(15); return _repository.GetAll().Select(p => new { ID = p.ID, Code = p.Product.Code, Description = p.Product.Description, Price = p.Product.Price, UserId = p.UserId, Quantity = p.Quantity, Total = p.Quantity * p.Product.Price }).ToList(); }));
         }
 
         // POST: api/ShoppingCarts

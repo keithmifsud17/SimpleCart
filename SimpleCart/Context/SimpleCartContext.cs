@@ -15,7 +15,7 @@ namespace SimpleCart.Context
         {
             modelBuilder.Entity<Product>().HasKey(c => c.ID);
             modelBuilder.Entity<ShoppingCart>().HasKey(c => c.ID);
-            modelBuilder.Entity<ShoppingCart>().HasOne<Product>(c => c.Product);
+            modelBuilder.Entity<ShoppingCart>().HasOne<Product>(c => c.Product).WithMany(navigationName: null).HasForeignKey(c => c.ProductId).IsRequired();
             base.OnModelCreating(modelBuilder);
         }
 

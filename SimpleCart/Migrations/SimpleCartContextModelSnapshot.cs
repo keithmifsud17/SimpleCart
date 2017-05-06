@@ -36,7 +36,7 @@ namespace SimpleCart.Migrations
                     b.Property<int>("ID")
                         .ValueGeneratedOnAdd();
 
-                    b.Property<int?>("ProductID");
+                    b.Property<int>("ProductId");
 
                     b.Property<int>("Quantity");
 
@@ -44,7 +44,7 @@ namespace SimpleCart.Migrations
 
                     b.HasKey("ID");
 
-                    b.HasIndex("ProductID");
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ShoppingCarts");
                 });
@@ -53,7 +53,8 @@ namespace SimpleCart.Migrations
                 {
                     b.HasOne("SimpleCart.Models.Product", "Product")
                         .WithMany()
-                        .HasForeignKey("ProductID");
+                        .HasForeignKey("ProductId")
+                        .OnDelete(DeleteBehavior.Cascade);
                 });
         }
     }

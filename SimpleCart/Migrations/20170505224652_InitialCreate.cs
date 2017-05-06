@@ -29,7 +29,7 @@ namespace SimpleCart.Migrations
                 {
                     ID = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    ProductID = table.Column<int>(nullable: true),
+                    ProductId = table.Column<int>(nullable: false),
                     Quantity = table.Column<int>(nullable: false),
                     UserId = table.Column<int>(nullable: false)
                 },
@@ -37,17 +37,17 @@ namespace SimpleCart.Migrations
                 {
                     table.PrimaryKey("PK_ShoppingCarts", x => x.ID);
                     table.ForeignKey(
-                        name: "FK_ShoppingCarts_Products_ProductID",
-                        column: x => x.ProductID,
+                        name: "FK_ShoppingCarts_Products_ProductId",
+                        column: x => x.ProductId,
                         principalTable: "Products",
                         principalColumn: "ID",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_ShoppingCarts_ProductID",
+                name: "IX_ShoppingCarts_ProductId",
                 table: "ShoppingCarts",
-                column: "ProductID");
+                column: "ProductId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
