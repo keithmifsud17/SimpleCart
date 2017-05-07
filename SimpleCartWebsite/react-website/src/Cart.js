@@ -69,7 +69,7 @@ class ShoppingCart extends Component {
 						</tr>
 					</thead>
 					<tbody>
-						{this.state.carts.map(c => <Cart key={c.id} cart={c} refreshCart={this.RefreshCart()} /> )}
+						{this.state.carts.map(c => <Cart key={c.id} cart={c} refreshCart={this.RefreshCart} /> )}
 					</tbody>
 				</table>
 			</div>

@@ -81,7 +81,7 @@ class Product extends Component {
 	
 	DecQuantity = () => {
 		var q = parseInt(this.state.quantity,10);
-		if (q > 0) {
+		if (q > 1) {
 			this.setState({quantity: q - 1});
 		}
 	}
@@ -107,7 +107,7 @@ class Product extends Component {
 				<div>
 					<div className='productQuantity'>
 						<button onClick={this.DecQuantity}>-</button>
-						<input type='number' value={this.state.quantity} onChange={this.UpdateQuantity} />
+						<input type='number' min='1' value={this.state.quantity} onChange={this.UpdateQuantity} />
 						<button onClick={this.IncQuantity}>+</button>
 					</div>
 					<div className='productAdd'>

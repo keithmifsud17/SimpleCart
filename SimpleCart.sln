@@ -5,7 +5,7 @@ VisualStudioVersion = 15.0.26403.7
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCart", "SimpleCart\SimpleCart.csproj", "{058D7C16-8376-462A-AF9A-F3447565C4C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCartUnitTest", "SimpleCartUnitTest\SimpleCartUnitTest.csproj", "{A3663C5D-AA02-485F-822E-415D952A9C9A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleCartUnitTest", "SimpleCartUnitTest\SimpleCartUnitTest.csproj", "{908239E6-7C76-46BD-B5BF-B3DC5357A0BB}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -17,10 +17,10 @@ Global
 		{058D7C16-8376-462A-AF9A-F3447565C4C2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058D7C16-8376-462A-AF9A-F3447565C4C2}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058D7C16-8376-462A-AF9A-F3447565C4C2}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3663C5D-AA02-485F-822E-415D952A9C9A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3663C5D-AA02-485F-822E-415D952A9C9A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3663C5D-AA02-485F-822E-415D952A9C9A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3663C5D-AA02-485F-822E-415D952A9C9A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{908239E6-7C76-46BD-B5BF-B3DC5357A0BB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{908239E6-7C76-46BD-B5BF-B3DC5357A0BB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{908239E6-7C76-46BD-B5BF-B3DC5357A0BB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{908239E6-7C76-46BD-B5BF-B3DC5357A0BB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
